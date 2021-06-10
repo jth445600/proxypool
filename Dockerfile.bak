@@ -3,7 +3,9 @@ FROM golang:alpine as builder
 RUN apk add --no-cache make git
 WORKDIR /proxypool-src
 COPY . /proxypool-src
-RUN mv ./proxypoolv0.7.3 /proxypool
+RUN go mod download && \
+    make docker && \
+    mv ./bin/proxypool-docker /proxypool
 
 FROM alpine:latest
 
