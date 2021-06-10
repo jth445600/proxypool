@@ -1,5 +1,5 @@
     domain: free-spy.herokuapp.com
-    port:     80   # default 12580
+    port:     5167  # default 12580
     # source list file
     source-files:
       # use local file
