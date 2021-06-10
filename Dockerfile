@@ -1,8 +1,7 @@
-FROM alpine:edge
+FROM alpine:latest
 
 RUN apk add --no-cache ca-certificates tzdata
-WORKDIR /proxypool-src
-COPY ./assets /proxypool-src/assets
-COPY ./config /proxypool-src/config
-COPY ./proxypool /proxypool-src/
-ENTRYPOINT ["/proxypool-src/proxypool", "-d"]
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD /start.sh
